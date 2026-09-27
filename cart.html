@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - FoodieHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo">FoodieHub</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="cart.html">Cart (<span id="cartCount">0</span>)</a></li>
+      <li><a href="wishlist.html">Wishlist</a></li>
+    </ul>
+  </nav>
+
+  <section class="cart-section">
+  <h2>Your Cart</h2>
+
+  <div class="cart-items" id="cartItemsContainer">
+    <!-- Cart items JavaScript se yahan add honge -->
+  </div>
+
+  <div class="cart-summary">
+    <p>Subtotal: <span id="subtotal">₹0</span></p>
+    <p>Delivery Charge: <span id="deliveryCharge">₹40</span></p>
+    <p><strong>Grand Total: <span id="grandTotal">₹0</span></strong></p>
+    <button id="checkoutBtn">Proceed to Checkout</button>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
+

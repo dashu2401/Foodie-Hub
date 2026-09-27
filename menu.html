@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - FoodieHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo">FoodieHub</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+     <li><a href="cart.html">Cart (<span id="cartCount">0</span>)</a></li>
+      <li><a href="wishlist.html">Wishlist</a></li>
+    </ul>
+  </nav>
+
+  <section class="search-section">
+  <input type="text" id="searchInput" placeholder="Search for food...">
+</section>
+
+<section class="menu-categories">
+  <button class="category-btn active" data-category="All">All</button>
+  <button class="category-btn" data-category="Pizza">Pizza</button>
+  <button class="category-btn" data-category="Burger">Burger</button>
+  <button class="category-btn" data-category="Pasta">Pasta</button>
+  <button class="category-btn" data-category="Fast Food">Fast Food</button>
+  <button class="category-btn" data-category="Indian">Indian</button>
+  <button class="category-btn" data-category="Veg">Veg</button>
+  <button class="category-btn" data-category="Non-Veg">Non-Veg</button>
+  <button class="category-btn" data-category="South Indian">South Indian</button>
+  <button class="category-btn" data-category="Chinese">Chinese</button>
+  <button class="category-btn" data-category="Dessert">Desserts</button>
+  <button class="category-btn" data-category="Drinks">Drinks</button>
+  <button class="category-btn" data-category="Salad">Salad</button>
+  <button class="category-btn" data-category="Sandwich">Sandwich</button>
+  <button class="category-btn" data-category="Wrap">Wrap</button>
+  <button class="category-btn" data-category="Breakfast">Breakfast</button>
+  <button class="category-btn" data-category="Beverage">Beverage</button>
+  <button class="category-btn" data-category="Appetizer">Appetizer</button>
+  <button class="category-btn" data-category="Main Course">Main Course</button>
+</section>
+
+  <section class="menu-foods">
+    <div class="food-cards" id="foodContainer">
+      <!-- Food cards JavaScript se yahan add honge -->
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
