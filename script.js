@@ -386,7 +386,13 @@ function displayCart() {
     cartItemDiv.innerHTML = `
       <img src="${item.image}" alt="${item.name}">
       <h3>${item.name}</h3>
-      <p>₹${item.price} x ${item.quantity}</p>
+      <p>₹${item.price}</p>
+      <div class="quantity-controls">
+        <button class="decrease-btn" data-id="${item.id}">−</button>
+        <span>${item.quantity}</span>
+        <button class="increase-btn" data-id="${item.id}">+</button>
+      </div>
+      <button class="remove-btn" data-id="${item.id}">Remove</button>
     `;
     cartItemsContainer.appendChild(cartItemDiv);
   });
@@ -404,3 +410,117 @@ function displayCart() {
 }
 
 displayCart();
+
+const cartItemsContainer = document.getElementById("cartItemsContainer");
+
+if (cartItemsContainer) {
+  cartItemsContainer.addEventListener("click", function(e) {
+    const itemId = Number(e.target.dataset.id);
+
+    if (e.target.classList.contains("increase-btn")) {
+      const item = cart.find(function(cartItem) {
+        return cartItem.id === itemId;
+      });
+      item.quantity = item.quantity + 1;
+      saveCart();
+      updateCartCount();
+      displayCart();
+    }
+
+    if (e.target.classList.contains("decrease-btn")) {
+      const item = cart.find(function(cartItem) {
+        return cartItem.id === itemId;
+      });
+      if (item.quantity > 1) {
+        item.quantity = item.quantity - 1;
+      } else {
+        cart = cart.filter(function(cartItem) {
+          return cartItem.id !== itemId;
+        });
+      }
+      saveCart();
+      updateCartCount();
+      displayCart();
+    }
+
+    if (e.target.classList.contains("remove-btn")) {
+      cart = cart.filter(function(cartItem) {
+        return cartItem.id !== itemId;
+      });
+      saveCart();
+      updateCartCount();
+      displayCart();
+    }
+  });
+}
+
+const registerForm = document.getElementById("registerForm");
+
+if (registerForm) {
+  registerForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("regName").value;
+    const email = document.getElementById("regEmail").value;
+    const password = document.getElementById("regPassword").value;
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    users.push({
+      name: name,
+      email: email,
+      password: password
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Registration Successful!");
+    window.location.href = "login.html";
+  });
+}
+
+const loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+  loginForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const matchedUser = users.find(function(user) {
+      return user.email === email && user.password === password;
+    });
+
+    if (matchedUser) {
+      localStorage.setItem("loggedInUser", JSON.stringify(matchedUser));
+      alert("Login Successful");
+      window.location.href = "index.html";
+    } else {
+      alert("Invalid email or password");
+    }
+  });
+}
+
+function updateAuthLink() {
+  const authLink = document.getElementById("authLink");
+  if (!authLink) return;
+
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  if (loggedInUser) {
+    authLink.innerHTML = `<a href="#" id="logoutBtn">Logout (${loggedInUser.name})</a>`;
+    document.getElementById("logoutBtn").addEventListener("click", function(e) {
+      e.preventDefault();
+      localStorage.removeItem("loggedInUser");
+      alert("Logged out successfully");
+      window.location.href = "index.html";
+    });
+  } else {
+    authLink.innerHTML = `<a href="login.html">Login</a>`;
+  }
+}
+
+updateAuthLink();
