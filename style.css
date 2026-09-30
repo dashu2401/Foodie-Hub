@@ -596,3 +596,228 @@ footer {
 .auth-section p a:hover {
   text-decoration: underline;
 }
+
+.about-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #14213d;
+  border-radius: 10px;
+}
+
+.about-section h2 {
+  color: orange;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about-section h3 {
+  color: orange;
+  font-size: 20px;
+  margin-top: 25px;
+  margin-bottom: 8px;
+}
+
+.about-section p {
+  font-size: 15px;
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+.contact-section {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #14213d;
+  border-radius: 10px;
+}
+
+.contact-section h2 {
+  color: orange;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-section input,
+.contact-section textarea {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #0d1b2a;
+  color: white;
+}
+
+.contact-section textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-section input::placeholder,
+.contact-section textarea::placeholder {
+  color: #aaaaaa;
+}
+
+.contact-section button {
+  background-color: orange;
+  color: #0d1b2a;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-section button:hover {
+  background-color: white;
+}
+
+.contact-info {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #2a3a5a;
+}
+
+.contact-info p {
+  font-size: 14px;
+  color: #cccccc;
+  margin-bottom: 8px;
+}
+
+.checkout-section {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #14213d;
+  border-radius: 10px;
+}
+
+.checkout-section h2 {
+  color: orange;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.order-summary, .coupon-box {
+  margin-bottom: 20px;
+}
+
+.order-summary p {
+  margin-bottom: 8px;
+}
+
+.coupon-box {
+  display: flex;
+  gap: 10px;
+}
+
+.checkout-section input,
+.checkout-section select {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #0d1b2a;
+  color: white;
+}
+
+.coupon-box input {
+  flex: 1;
+}
+
+.checkout-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.checkout-section button {
+  background-color: orange;
+  color: #0d1b2a;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.checkout-section button:hover {
+  background-color: white;
+}
+
+.order-success {
+  text-align: center;
+}
+
+.order-success h3 {
+  color: orange;
+  margin-bottom: 10px;
+}
+
+.order-success a {
+  color: orange;
+}
+
+@media screen and (max-width: 768px) {
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero button {
+    margin: 5px;
+  }
+
+  .food-card,
+  .offer-item,
+  .review-item,
+  .feature-item {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cart-item {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .auth-section,
+  .about-section,
+  .contact-section,
+  .checkout-section {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+}

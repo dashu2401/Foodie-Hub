@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - FoodieHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo">FoodieHub</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="cart.html">Cart (<span id="cartCount">0</span>)</a></li>
+      <li><a href="wishlist.html">Wishlist (<span id="wishlistCount">0</span>)</a></li>
+      <li id="authLink"><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <section class="checkout-section">
+    <h2>Checkout</h2>
+
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+      <p>Subtotal: <span id="checkoutSubtotal">₹0</span></p>
+      <p>Discount: <span id="checkoutDiscount">₹0</span></p>
+      <p>Delivery Charge: <span id="checkoutDelivery">₹40</span></p>
+      <p><strong>Grand Total: <span id="checkoutTotal">₹0</span></strong></p>
+    </div>
+
+    <div class="coupon-box">
+      <input type="text" id="couponCode" placeholder="Enter Coupon Code">
+      <button type="button" id="applyCouponBtn">Apply</button>
+    </div>
+    <p id="couponMessage"></p>
+
+    <form id="checkoutForm">
+      <input type="text" id="custName" placeholder="Full Name" required>
+      <input type="tel" id="custMobile" placeholder="Mobile Number" required>
+      <input type="email" id="custEmail" placeholder="Email" required>
+      <input type="text" id="custAddress" placeholder="Address" required>
+      <input type="text" id="custCity" placeholder="City" required>
+      <input type="text" id="custPincode" placeholder="Pincode" required>
+
+      <select id="paymentMethod" required>
+        <option value="">Select Payment Method</option>
+        <option value="COD">Cash on Delivery</option>
+        <option value="UPI">UPI</option>
+        <option value="Card">Credit/Debit Card</option>
+        <option value="NetBanking">Net Banking</option>
+      </select>
+
+      <button type="submit">Place Order</button>
+    </form>
+
+    <div id="orderSuccess" class="order-success"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

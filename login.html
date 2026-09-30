@@ -1,38 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - FoodieHub</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - FoodieHub</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{
+  min-height:100vh;
+  background:linear-gradient(rgba(18,30,56,0.85),rgba(18,30,56,0.85)),url('https://images.unsplash.com/photo-1504674900247-0877df9cc836');
+  background-size:cover;
+  display:flex;justify-content:center;align-items:center;
+}
+.card{
+  background:#1E2D4A;
+  width:90%;max-width:480px;
+  padding:35px;border-radius:18px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.5);
+  border:1px solid rgba(255,255,255,0.08);
+}
+.logo{color:#fff;font-size:32px;font-weight:700;text-align:center;}
+.logo span{color:#FFC400;}
+h2{color:#fff;text-align:center;margin:8px 0 4px;font-size:28px;}
+.sub{color:#8A9BC0;text-align:center;font-size:14px;margin-bottom:25px;}
+label{color:#FFD6A0;font-size:14px;display:block;margin:14px 0 6px;}
+.input-box{
+  background:#23365E;border:1px solid #3A4E7A;border-radius:10px;
+  display:flex;align-items:center;padding:0 14px;
+}
+.input-box input{
+  width:100%;background:transparent;border:none;
+  padding:14px 10px;color:#fff;outline:none;font-size:15px;
+}
+.input-box input::placeholder{color:#7B8DB5;}
+.icon{color:#FFC400;font-size:18px;}
+.options{display:flex;justify-content:space-between;align-items:center;margin:16px 0;}
+.options a{color:#FFC400;text-decoration:none;font-size:14px;}
+.options label{margin:0;color:#AAB8D8;display:flex;align-items:center;gap:6px;}
+.btn-yellow{
+  width:100%;background:#FFC400;color:#121E38;
+  border:none;padding:13px;border-radius:10px;
+  font-size:17px;font-weight:700;cursor:pointer;transition:0.3s;
+}
+.btn-yellow:hover{background:#FFD740;transform:translateY(-2px);}
+.divider{color:#7B8DB5;text-align:center;margin:18px 0;position:relative;font-size:14px;}
+.divider::before,.divider::after{content:"";position:absolute;top:50%;width:25%;height:1px;background:#3A4E7A;}
+.divider::before{left:0;}
+.divider::after{right:0;}
+.btn-google{
+  width:100%;background:transparent;border:1px solid #3A4E7A;
+  color:#fff;padding:12px;border-radius:10px;cursor:pointer;
+  display:flex;justify-content:center;align-items:center;gap:10px;
+}
+.signup{text-align:center;color:#AAB8D8;margin-top:20px;font-size:14px;}
+.signup a{color:#FFC400;font-weight:600;text-decoration:none;}
+.eye{cursor:pointer;color:#7B8DB5;}
+</style>
 </head>
 <body>
 
-  <nav>
-    <div class="logo">FoodieHub</div>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="cart.html">Cart (<span id="cartCount">0</span>)</a></li>
-      <li><a href="wishlist.html">Wishlist</a></li>
-      <li id="authLink"><a href="login.html">Login</a></li>
-    </ul>
-  </nav>
+<div class="card">
+  <div class="logo">🍽️ Foodie<span>Hub</span></div>
+  <h2>Welcome Back</h2>
+  <p class="sub">Log in to continue to FoodieHub</p>
 
-  <section class="auth-section">
-    <h2>Login</h2>
+  <form id="loginForm">
+    <label>Email</label>
+    <div class="input-box">
+      <span class="icon">✉️</span>
+      <input type="email" id="loginEmail" placeholder="email@domain.com" required>
+    </div>
 
-    <form id="loginForm">
-      <input type="email" id="loginEmail" placeholder="Email" required>
-      <input type="password" id="loginPassword" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
+    <label>Password</label>
+    <div class="input-box">
+      <span class="icon">🔒</span>
+      <input type="password" id="loginPassword" placeholder="••••••••" required>
+      <span class="eye" onclick="togglePass()">👁️</span>
+    </div>
 
-    <p>Don't have an account? <a href="register.html">Register here</a></p>
-  </section>
+    <div class="options">
+      <label><input type="checkbox"> Remember me</label>
+      <a href="#">Forgot password?</a>
+    </div>
 
-  <script src="script.js"></script>
+    <button type="submit" class="btn-yellow">Log In</button>
+
+    <div class="divider">or</div>
+    <button type="button" class="btn-google" onclick="googleLogin()">
+      <img src="https://www.svgrepo.com/show/475656/google-color.svg" width="22" alt="Google"> Continue with Google
+    </button>
+
+    <p class="signup">Don't have an account? <a href="register.html">Sign up</a></p>
+  </form>
+</div>
+
+<script>
+function togglePass(){
+  var p = document.getElementById('loginPassword');
+  p.type = p.type === 'password' ? 'text' : 'password';
+}
+function googleLogin(){
+  alert('Google Login - Backend integration pending');
+}
+</script>
+<script src="script.js"></script>
 </body>
 </html>
