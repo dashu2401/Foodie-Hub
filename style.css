@@ -708,7 +708,8 @@ footer {
   margin-bottom: 20px;
 }
 
-.order-summary, .coupon-box {
+.order-summary,
+.coupon-box {
   margin-bottom: 20px;
 }
 
@@ -769,7 +770,6 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-
   nav {
     flex-direction: column;
     gap: 10px;
